@@ -1,0 +1,149 @@
+/**
+ * Catppuccin Mocha theme
+ * Color palette copied from https://catppuccin.com/palette
+ * https://github.com/hiimsergey/rofi-catppuccin
+ */
+
+* {
+    base: rgba(30, 30, 46, 10%);
+    surface0: rgba(49, 50, 68, 50%);
+    overlay0: rgba(108, 112, 134, 100%);
+    text: #cdd6f4;
+
+    mauve: #cba6f7;
+    red: #f38ba8;
+    peach: #fab387;
+    green: #a6e3a1;
+    lavender: #b4befe;
+
+    background-color: @base;
+}
+
+window {
+    width: 700;
+    border: 2;
+    border-radius: 15;
+    border-color: @mauve;
+    transparency: "real";
+    background-image: linear-gradient(69deg, #b4befeaa, #cba6f7aa);
+}
+
+mainbox {
+    children: [inputbar, listview];
+}
+
+inputbar {
+    text-color: white;
+    padding: 10;
+    background-color: transparent;
+    children: [entry];
+}
+
+entry{
+    placeholder: "Search for your application...";
+    padding: 8;
+    border-radius: 10;
+    text-color: white;
+}
+
+prompt{
+}
+
+message {
+}
+
+listview {
+    fixed-height: false;
+    lines: 5;
+    dynamic: false;
+    spacing: 10;
+    padding: 10;
+    border-radius: 0 0 10 10;
+    background-color: transparent;
+    scrollbar: true;
+    cycle: false;
+}
+
+scrollbar {
+    handle-rounded-corners: true;
+}
+
+textbox {
+    text-color: red;
+    border-radius: 0;
+    background-color: transparent;
+    color: red;
+}
+
+error-message {
+}
+
+entry, prompt, case-indicator {
+}
+
+prompt {
+    background-color: red;
+}
+
+element {
+    padding: 5;
+    vertical-align: 0.5;
+    border-radius: 15;
+    background-color: transparent;
+}
+
+element.selected.normal {
+    background-color: @base;
+}
+
+element.normal.active, element.alternate.active {
+    background: transparent;
+}
+
+element.selected.active {
+    background: transparent;
+}
+
+element.normal.urgent, element.alternate.urgent {
+    background: transparent;
+}
+
+element.selected.urgent {
+    background: transparent;
+}
+
+element-text, element-icon {
+    size: 40;
+    margin: 0 10 0 0;
+    vertical-align: 0.5;
+    background-color: transparent;
+    text-color: white;
+}
+
+element-text .active, element-text .urgent {
+    background: transparent;
+}
+
+configuration {
+  	modes: "window,drun,ssh,combi";
+	font: "SF Pro Rounded, Semibold 14";
+	show-icons: true;
+  	parse-hosts: false;
+  	combi-modes: "drun,window,ssh";
+  	combi-hide-mode-prefix: false;
+  	window-thumbnail: true;
+	  display-window: "󱂬";
+	  display-run: "󱓞";
+	  display-ssh: "";
+	  display-drun: "";
+	  display-combi: "󰕘 combi:";
+	  display-filebrowser: "󰉋 filebrowser:";
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+}

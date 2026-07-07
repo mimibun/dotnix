@@ -5,11 +5,11 @@
     
     polarity = "dark";
 
-    cursor = {
-      name = "Bibata-Modern-Ice";
-      package = pkgs.bibata-cursors;
-      size = 24;
-    };
+    # cursor = {
+    #   name = "Bibata-Modern-Ice";
+    #   package = pkgs.bibata-cursors;
+    #   size = 24;
+    # };
 
     # fonts = {
     #   serif = {

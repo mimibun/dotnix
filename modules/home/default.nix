@@ -38,7 +38,7 @@
     # programs
     obsidian
 
-    hyprcursor
+    hyprpaper
   ];
 
   fonts.fontconfig.enable = true;

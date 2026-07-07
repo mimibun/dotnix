@@ -291,4 +291,19 @@
       }
     '';
   };
+
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      preload = [
+        "../assets/wallpapers/tinyglade.jpg"
+      ];
+      wallpaper = [
+        {
+          monitor = "";
+          path = "../../../assets/wallpapers/tinyglade.jpg"; 
+        }
+      ];
+    };
+  };
 }

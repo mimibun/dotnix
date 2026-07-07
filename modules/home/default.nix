@@ -7,7 +7,7 @@
     ./starship/starship.nix
     ./rofi/rofi.nix
     # ./waybar/waybar.nix
-    # ./noctalia.nix
+    ./noctalia.nix
   ];
 
   home.packages = with pkgs; [
@@ -22,6 +22,7 @@
     tldr
     brightnessctl
     dig
+    bat
 
     # shell
     zoxide

@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ 
+  imports = [ 
       ./hardware-configuration.nix
+      ../../modules/nixos
     ];
 
   services.fwupd.enable = true;

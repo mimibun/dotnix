@@ -66,6 +66,8 @@
 
         # Startup Apps
         exec-once = [
+          "hyprpaper"
+          "noctalia-shell"
         ];
 
         bindm = [
@@ -295,13 +297,14 @@
   services.hyprpaper = {
     enable = true;
     settings = {
+      splash = false;
       preload = [
-        "../assets/wallpapers/tinyglade.jpg"
+        "~/Wallpapers/tinyglade.jpg"
       ];
       wallpaper = [
         {
           monitor = "";
-          path = "../../../assets/wallpapers/tinyglade.jpg"; 
+          path = "~/Wallpapers/tinyglade.jpg"; 
         }
       ];
     };

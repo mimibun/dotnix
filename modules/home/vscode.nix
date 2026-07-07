@@ -10,6 +10,7 @@
       catppuccin.catppuccin-vsc
       catppuccin.catppuccin-vsc-icons#
       bbenoist.nix
+      fill-labs.dependi
     ];
   };
 }

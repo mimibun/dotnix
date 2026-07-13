@@ -45,6 +45,7 @@
     freecad
     flatpak
     orca-slicer
+    nautilus
   ];
 
   fonts.fontconfig.enable = true;

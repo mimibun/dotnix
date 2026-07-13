@@ -25,6 +25,8 @@
     HibernateDelaySec = "240min";
   };
 
+  services.gvfs.enable = true;
+
   nixpkgs.overlays = [
     (final: prev: {
       fwupd = prev.fwupd.overrideAttrs (oldAttrs: {

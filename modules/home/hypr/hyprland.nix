@@ -5,15 +5,11 @@
     configType = "hyprlang";
     systemd.enable = false;
     settings = {
-      env = [
-        "HYPRCURSOR_THEME,stylix"
-      ];
       decoration = {
         "$mainMod" = "SUPER";
         #"$terminal" = "kitty";
         #"$fileManager" = "nautilus";
         "$menu" = "rofi";
-        #"$screenshot" = "hyprshot";
 
         bind = [
           "$mainMod, Q, exec, kitty"
@@ -59,15 +55,15 @@
           "bind = $mainMod, space, exec, $menu -show combi $focusRofi # rofi/app launcher"
           #"bind = $mainMod, O,exec,/home/mimi/.local/bin/hyprshot -m region -z -s "
           #"bind = $mainMod, P,exec,pavucontrol"
-          "bind = $mainMod, L, exec, hyprlock" # lock screen
+          # "bind = $mainMod, L, exec, hyprlock" # lock screen
 
           "bind = $mainMod, S, togglespecialworkspace, magic"
         ];
 
         # Startup Apps
         exec-once = [
-          "hyprpaper"
-          "noctalia-shell"
+          # "hyprpaper"
+          "noctalia"
         ];
 
         bindm = [
@@ -92,7 +88,6 @@
       bindl = , XF86AudioNext, exec, playerctl next
       binde = , XF86MonBrightnessDown, exec, brightnessctl set 10%-
       binde = , XF86MonBrightnessUp, exec, brightnessctl set 10%+
-      bindl=,switch:Lid Switch, exec, hyprlock
       bindl=,switch:Lid Switch, exec, brightnessctl -d "tpacpi::kbd_backlight" set "2" 
 
 
@@ -189,15 +184,15 @@
 
       #---workspaces---
       workspace=1,monitor:eDP-1
-      workspace=2,monitor:eDP-2
-      workspace=3,monitor:eDP-2
-      workspace=4,monitor:eDP-2
-      workspace=5,monitor:eDP-2
-      workspace=6,monitor:eDP-2
-      workspace=7,monitor:eDP-2
-      workspace=8,monitor:eDP-2
-      workspace=9,monitor:eDP-2
-      workspace=10,monitor:eDP-2
+      workspace=2,monitor:eDP-1
+      workspace=3,monitor:eDP-1
+      workspace=4,monitor:eDP-1
+      workspace=5,monitor:eDP-1
+      workspace=6,monitor:eDP-1
+      workspace=7,monitor:eDP-1
+      workspace=8,monitor:eDP-1
+      workspace=9,monitor:eDP-1
+      workspace=10,monitor:eDP-1
 
       windowrule {
           name = music
@@ -245,7 +240,7 @@
               layerrule = blur on, match:namespace rofi
               layerrule = blur on, match:namespace vicinae
           }
-          
+ 
           shadow {
               enabled = false
               range = 14
@@ -292,21 +287,5 @@
           animation = fade, 0
       }
     '';
-  };
-
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      splash = false;
-      preload = [
-        "~/Wallpapers/tinyglade.jpg"
-      ];
-      wallpaper = [
-        {
-          monitor = "";
-          path = "~/Wallpapers/tinyglade.jpg"; 
-        }
-      ];
-    };
   };
 }

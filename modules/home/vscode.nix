@@ -8,7 +8,7 @@
       tamasfe.even-better-toml
       vscodevim.vim
       catppuccin.catppuccin-vsc
-      catppuccin.catppuccin-vsc-icons#
+      catppuccin.catppuccin-vsc-icons
       bbenoist.nix
       fill-labs.dependi
     ];

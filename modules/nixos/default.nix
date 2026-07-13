@@ -1,8 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [
-    # ./stylix.nix
-  ];
+  imports = [];
 
   services = {
     gnome.gnome-keyring.enable = true;
@@ -15,5 +13,7 @@
         PermitRootLogin = "no";
       };
     };
+
+    flatpak.enable = true;
   };
 }

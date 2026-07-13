@@ -4,33 +4,15 @@
   imports = [ 
       ./hardware-configuration.nix
       ../../modules/nixos
-    ];
+  ];
 
   services.fwupd.enable = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  services.power-profiles-daemon.enable = false;
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-
-      CPU_MIN_PERF_ON_AC = 0;
-      CPU_MAX_PERF_ON_AC = 100;
-      CPU_MIN_PERF_ON_BAT = 0;
-      CPU_MAX_PERF_ON_BAT = 20;
-
-      START_CHARGE_THRESH_BAT0 = 40; 
-      STOP_CHARGE_THRESH_BAT0 = 80; 
-
-    };
-  };
+  services.power-profiles-daemon.enable = true;
+  services.upower.enable = true;
 
   services.logind.settings.Login = {
     HandleLidSwitch = "suspend-then-hibernate";
@@ -42,8 +24,6 @@
     AllowSuspendThenHibernate = "yes";
     HibernateDelaySec = "240min";
   };
-
-  security.pam.services.hyprlock = {};
 
   nixpkgs.overlays = [
     (final: prev: {
@@ -67,6 +47,19 @@
       enable = true;
     };
   };
+
+  networking.firewall = {
+    enable = true;
+    # make orcaslicer network stuff work
+    allowedTCPPorts = [ 8883 ];
+    allowedUDPPorts = [ 1990 2021 ];
+    
+    extraCommands = ''
+      iptables -I INPUT -m pkttype --pkt-type multicast -j ACCEPT
+    '';
+  };
+
+  hardware.bluetooth.enable = true;
 
   time.timeZone = "Europe/Berlin";
 
@@ -172,7 +165,7 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than-30d";
+      options = "--delete-older-than 30d";
       persistent = true;
     };
 

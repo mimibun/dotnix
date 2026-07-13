@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs, inputs, ... }:
 {
   imports = [
     ./hypr/hyprland.nix
@@ -6,7 +6,6 @@
     ./vscode.nix
     ./starship/starship.nix
     ./rofi/rofi.nix
-    # ./waybar/waybar.nix
     ./noctalia.nix
   ];
 
@@ -16,7 +15,6 @@
     btop
     fzf
     gparted
-    vscode
     tig
     nmap
     tldr
@@ -24,10 +22,14 @@
     dig
     bat
 
+
     # shell
     zoxide
     starship
     lsd
+
+    # coding
+    rustup
 
     # social
     signal-desktop
@@ -35,11 +37,14 @@
     # fonts
     maple-mono.NF-unhinted
     font-awesome_7
+    inputs.apple-fonts.packages.${pkgs.system}.sf-pro
 
     # programs
     obsidian
-
-    hyprpaper
+    spotify
+    freecad
+    flatpak
+    orca-slicer
   ];
 
   fonts.fontconfig.enable = true;
@@ -67,7 +72,7 @@
 
     discord.enable = true;
     rofi.enable = true;
-    hyprlock.enable = true;
+    # hyprlock.enable = true;
     vicinae.enable = true;
   };
 }

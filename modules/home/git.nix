@@ -12,5 +12,5 @@
       pull.rebase = true;
       push.default = "current";
     };
-  }
+  };
 }

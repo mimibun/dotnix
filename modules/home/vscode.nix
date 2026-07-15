@@ -54,7 +54,46 @@
           "editor.defaultFormatter" = "rust-lang.rust-analyzer";
           "editor.formatOnSave" = true;
         };
+        "explorer.compactFolders" = false;
       };
+
+      keybindings = [
+        {
+          key = "up";
+          command = "-cursorUp";
+          when = "textInputFocus";
+        }
+        {
+          key = "down";
+          command = "-cursorDown";
+          when = "textInputFocus";
+        }
+        {
+          key = "left";
+          command = "-cursorLeft";
+          when = "textInputFocus";
+        }
+        {
+          key = "right";
+          command = "-cursorRight";
+          when = "textInputFocus";
+        }
+        {
+          key = "ctrl+shift+end";
+          command = "-cursorBottomSelect";
+          when = "textInputFocus";
+        }
+        {
+          key = "alt+k";
+          command = "selectPrevSuggestion";
+          when = "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus";
+        }
+        {
+          key = "alt+j";
+          command = "selectNextSuggestion";
+          when = "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus";
+        }
+      ];
     };
   };
 }

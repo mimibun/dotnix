@@ -15,15 +15,10 @@
   services.upower.enable = true;
 
   services.logind.settings.Login = {
-    HandleLidSwitch = "suspend-then-hibernate";
+    HandleLidSwitch = "suspend";
   };
   
-  # CHECK SWAP FOR SUSPEND/HIBERNATION THINGY OWO
-
-  systemd.sleep.settings.Sleep = {
-    AllowSuspendThenHibernate = "yes";
-    HibernateDelaySec = "240min";
-  };
+  services.thermald.enable = true;
 
   services.gvfs.enable = true;
 
@@ -62,6 +57,18 @@
   };
 
   hardware.bluetooth.enable = true;
+
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver 
+      vpl-gpu-rt
+    ];
+  };
+
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
+  };
 
   time.timeZone = "Europe/Berlin";
 

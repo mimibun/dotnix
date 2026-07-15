@@ -7,6 +7,7 @@
     ./starship/starship.nix
     ./rofi/rofi.nix
     ./noctalia.nix
+    ./git.nix
   ];
 
   home.packages = with pkgs; [
@@ -21,6 +22,7 @@
     brightnessctl
     dig
     bat
+    s-tui
 
 
     # shell
@@ -29,6 +31,7 @@
     lsd
 
     # coding
+    gcc
     rustup
 
     # social
@@ -52,7 +55,7 @@
 
   home.pointerCursor = {
     gtk.enable = true;
-    x11.enable = true; # Uncomment if you use any XWayland apps
+    x11.enable = true;
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Ice";
     size = 24;
@@ -73,7 +76,6 @@
 
     discord.enable = true;
     rofi.enable = true;
-    # hyprlock.enable = true;
     vicinae.enable = true;
   };
 }

@@ -52,7 +52,6 @@
         "chat.agent.enabled" = false;
         "[rust]" = {
           "editor.defaultFormatter" = "rust-lang.rust-analyzer";
-          "editor.formatOnSave" = true;
         };
         "explorer.compactFolders" = false;
       };

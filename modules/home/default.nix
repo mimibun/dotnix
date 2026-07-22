@@ -23,7 +23,7 @@
     dig
     bat
     s-tui
-
+    pavucontrol
 
     # shell
     zoxide
@@ -49,6 +49,7 @@
     flatpak
     orca-slicer
     nautilus
+    element-desktop
   ];
 
   fonts.fontconfig.enable = true;

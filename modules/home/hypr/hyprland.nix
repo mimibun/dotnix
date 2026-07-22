@@ -53,16 +53,15 @@
           #"bind = $mainMod, E, exec, $fileManager"
           "bind = $mainMod, V, togglefloating, "
           "bind = $mainMod, space, exec, $menu -show combi $focusRofi # rofi/app launcher"
-          #"bind = $mainMod, O,exec,/home/mimi/.local/bin/hyprshot -m region -z -s "
+          "bind = $mainMod, O,exec, noctalia msg screenshot-region"
           #"bind = $mainMod, P,exec,pavucontrol"
-          # "bind = $mainMod, L, exec, hyprlock" # lock screen
+          "bind = $mainMod, L, exec, noctalia msg session lock"
 
           "bind = $mainMod, S, togglespecialworkspace, magic"
         ];
 
         # Startup Apps
         exec-once = [
-          # "hyprpaper"
           "noctalia"
         ];
 
@@ -80,15 +79,15 @@
       # e -> repeats when key is held 
 
       #--media-keys---
-      bindel = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-      bindel = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-      bindl = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+      bindel = , XF86AudioRaiseVolume, exec, noctalia msg volume-up
+      bindel = , XF86AudioLowerVolume, exec, noctalia msg volume-down
+      bindl = , XF86AudioMute, exec, noctalia msg volume-mute
       bindl = , XF86AudioPlay, exec, playerctl play-pause
       bindl = , XF86AudioPrev, exec, playerctl previous
       bindl = , XF86AudioNext, exec, playerctl next
-      binde = , XF86MonBrightnessDown, exec, brightnessctl set 10%-
-      binde = , XF86MonBrightnessUp, exec, brightnessctl set 10%+
-      bindl=,switch:Lid Switch, exec, brightnessctl -d "tpacpi::kbd_backlight" set "2" 
+      binde = , XF86MonBrightnessDown, exec, noctalia msg brightness-down
+      binde = , XF86MonBrightnessUp, exec, noctalia msg brightness-up
+      bindl=,switch:Lid Switch, exec, brightnessctl -d "tpacpi::kbd_backlight" set "2"; noctalia msg session lock
 
 
       $mainMod = SUPER

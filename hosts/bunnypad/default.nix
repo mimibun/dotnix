@@ -3,7 +3,7 @@
 {
   imports = [ 
       ./hardware-configuration.nix
-      ../../modules/nixos
+      ../../modules/nixos/default.nix
   ];
 
   services.fwupd.enable = true;
@@ -21,22 +21,6 @@
   services.thermald.enable = true;
 
   services.gvfs.enable = true;
-
-  nixpkgs.overlays = [
-    (final: prev: {
-      fwupd = prev.fwupd.overrideAttrs (oldAttrs: {
-        patches =
-          (oldAttrs.patches or [])
-          ++ [
-            (final.fetchpatch {
-              name = "fwupd-jcat-limit-fix.patch";
-              url = "https://github.com/fwupd/fwupd/pull/10479.patch";
-              hash = "sha256-wthjHm3yjevkOCAqCgZNpyybbI3TZ+07knOdRbUQV7g=";
-            })
-          ];
-      });
-    })
-  ];
 
   networking = {
     hostName = "bunnypad";
@@ -68,6 +52,7 @@
 
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "iHD";
+    WEBKIT_DISABLE_COMPOSITING_MODE=1;
   };
 
   time.timeZone = "Europe/Berlin";

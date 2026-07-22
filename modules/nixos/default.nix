@@ -13,7 +13,5 @@
         PermitRootLogin = "no";
       };
     };
-
-    flatpak.enable = true;
   };
 }

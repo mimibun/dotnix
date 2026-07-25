@@ -12,6 +12,7 @@
         catppuccin.catppuccin-vsc-icons
         bbenoist.nix
         fill-labs.dependi
+        # cordx56.rustowl-vscode - isnt there yet i think  
       ];
 
       userSettings = {

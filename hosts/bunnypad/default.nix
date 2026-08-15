@@ -52,7 +52,7 @@
 
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "iHD";
-    WEBKIT_DISABLE_COMPOSITING_MODE=1;
+    # WEBKIT_DISABLE_COMPOSITING_MODE=1;
   };
 
   time.timeZone = "Europe/Berlin";

@@ -37,6 +37,9 @@
     # social
     signal-desktop
 
+    # browsers
+    ungoogled-chromium
+
     # fonts
     maple-mono.NF-unhinted
     font-awesome_7
@@ -50,6 +53,7 @@
     orca-slicer
     nautilus
     element-desktop
+    prusa-slicer
   ];
 
   fonts.fontconfig.enable = true;

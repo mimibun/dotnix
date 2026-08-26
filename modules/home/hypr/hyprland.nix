@@ -3,7 +3,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     configType = "hyprlang";
-    systemd.enable = false;
+    systemd.enable = true;
     settings = {
       decoration = {
         "$mainMod" = "SUPER";

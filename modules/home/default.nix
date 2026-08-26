@@ -24,6 +24,8 @@
     bat
     s-tui
     pavucontrol
+    gimp
+    loupe
 
     # shell
     zoxide
@@ -33,6 +35,7 @@
     # coding
     gcc
     rustup
+    uv
 
     # social
     signal-desktop
@@ -59,6 +62,7 @@
   fonts.fontconfig.enable = true;
 
   home.pointerCursor = {
+    enable = true;
     gtk.enable = true;
     x11.enable = true;
     package = pkgs.bibata-cursors;
@@ -82,5 +86,29 @@
     discord.enable = true;
     rofi.enable = true;
     vicinae.enable = true;
+  };
+
+  xdg = { 
+    enable = true;
+
+    desktopEntries.loupe = {
+      name = "Loupe";
+      exec = "${pkgs.loupe}/bin/loupe";
+    };    
+
+    mime.enable = true;
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "x-scheme-handler/http" = ["firefox.desktop"];
+        "x-scheme-handler/https" = ["firefox.desktop"];
+        "x-scheme-handler/about" = ["firefox.desktop"];
+        "x-scheme-handler/unknown" = ["firefox.desktop"];
+        "image/png" = ["loupe.desktop"];
+        "image/jpg" = ["loupe.desktop"];
+        "image/jpeg" = ["loupe.desktop"];
+        "image/bmp" = ["loupe.desktop"];
+      };
+    }; 
   };
 }

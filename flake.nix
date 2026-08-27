@@ -61,6 +61,29 @@
             ./hosts/bunnypad
           ];
         };
+
+        bunnystation = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;            
+            username = "mimi";
+          };
+          modules = [
+            home-manager.nixosModules.home-manager
+            stylix.nixosModules.stylix
+            
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs; };
+                backupFileExtension = "backup";
+              };
+            }
+
+            ./hosts/bunnystation
+          ];
+        };
       };
 
   };

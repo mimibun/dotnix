@@ -88,6 +88,8 @@
   };
 
   home-manager.users."mimi" = {
+    home-manager.enable = true;
+    
     home = {
       username = "mimi";
       homeDirectory = "/home/mimi";
@@ -104,7 +106,6 @@
   };
 
   programs = {
-    home-manager.enable = true;
     fish.enable = true;
     firefox.enable = true;
   };

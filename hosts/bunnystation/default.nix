@@ -88,8 +88,8 @@
   };
 
   home-manager.users."mimi" = {
-    home-manager.enable = true;
-    
+    programs.home-manager.enable = true;
+
     home = {
       username = "mimi";
       homeDirectory = "/home/mimi";

@@ -1,5 +1,9 @@
 { pkgs, ... }:
 
 {
-  imports = [];
+  imports = [
+    ./hyprland.nix
+  ];
+
+  home.packages = with pkgs; [];
 }

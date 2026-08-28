@@ -35,4 +35,26 @@
       };
     };
   };
+
+  programs.ioquake3 = {
+    enable = true;
+    settings = {
+      sensitivity = 0.6;
+      name = "mimi";
+      com_maxfps = 280;
+      cg_drawFPS = true;
+      cg_fov = 103;
+      r_mode = "-1";
+      r_customheight = 1440;
+      r_customwidth = 2560;
+    };
+  };
+
+  programs.obs-studio = {
+    enable = true;
+    enableVirtualCamera = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      droidcam-obs
+    ];
+  };
 }

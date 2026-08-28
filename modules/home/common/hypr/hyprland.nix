@@ -173,27 +173,6 @@
       $crust = rgb(181926)
       $crustAlpha = 181926
 
-      #---monitors---
-      #monitor=eDP-2, highres@169, auto-right, 1
-      #monitor=eDP-2, highres@169, 2048x-700, 1.25, transform, 1
-      #monitor=eDP-1, highres@274, 0x0, 1
-      monitor=DP-1, highres@274, 0x0, 1
-      monitor=DP-2, highres@169, auto-right, 1
-      #monitor=HDMI-A-2, 2560x1440@60, 0x0, 1, mirror, eDP-1
-      #monitor=DP-1, highres@60, 1920x0, 1, transform, 0
-
-      #---workspaces---
-      workspace=1,monitor:eDP-1
-      workspace=2,monitor:eDP-1
-      workspace=3,monitor:eDP-1
-      workspace=4,monitor:eDP-1
-      workspace=5,monitor:eDP-1
-      workspace=6,monitor:eDP-1
-      workspace=7,monitor:eDP-1
-      workspace=8,monitor:eDP-1
-      workspace=9,monitor:eDP-1
-      workspace=10,monitor:eDP-1
-
       windowrule {
           name = music
           match:class = ^(Spotify)$

@@ -102,6 +102,7 @@
 
     imports = map (x: ../../modules + x) [
       /home
+      /home/bunnystation
     ]; 
   };
 

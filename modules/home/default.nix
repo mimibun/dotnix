@@ -57,6 +57,9 @@
     nautilus
     element-desktop
     prusa-slicer
+
+    # gaming
+    prismlauncher
   ];
 
   fonts.fontconfig.enable = true;
@@ -81,7 +84,6 @@
       enable = true;
       enableFishIntegration = true;
     };
-    waybar.enable = true;
 
     discord.enable = true;
     rofi.enable = true;

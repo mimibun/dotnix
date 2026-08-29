@@ -9,7 +9,7 @@
         "$mainMod" = "SUPER";
         #"$terminal" = "kitty";
         #"$fileManager" = "nautilus";
-        "$menu" = "rofi";
+        "$menu" = "vicinae";
 
         bind = [
           "$mainMod, Q, exec, kitty"
@@ -52,7 +52,7 @@
           "bind = $mainMod, C, killactive,"
           #"bind = $mainMod, E, exec, $fileManager"
           "bind = $mainMod, V, togglefloating, "
-          "bind = $mainMod, space, exec, $menu -show combi $focusRofi # rofi/app launcher"
+          "bind = $mainMod, space, exec, $menu toggle"
           "bind = $mainMod, O,exec, noctalia msg screenshot-region"
           #"bind = $mainMod, P,exec,pavucontrol"
           "bind = $mainMod, L, exec, noctalia msg session lock"
@@ -91,9 +91,6 @@
 
 
       $mainMod = SUPER
-
-      # Se but waiting for rofi to open then trigger focus
-      $focusRofi = & while [ "$(hyprctl clients | grep "class: Rofi")x" == "x" ]; do continue; done; hyprctl dispatch focuswindow "^(Rofi)"
 
       $rosewater = rgb(f4dbd6)
       $rosewaterAlpha = f4dbd6
@@ -188,8 +185,6 @@
 
       layerrule = no_anim on, match:namespace hyprpicker
       layerrule = no_anim on, match:namespace selection
-      layerrule = no_anim on, match:namespace ^(rofi)$
-
 
       #---settings---
       general {
@@ -216,7 +211,6 @@
               passes = 4
               popups = true
               layerrule = blur on, match:namespace waybar
-              layerrule = blur on, match:namespace rofi
               layerrule = blur on, match:namespace vicinae
           }
  

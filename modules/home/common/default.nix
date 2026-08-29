@@ -5,7 +5,6 @@
     ./shell.nix
     ./vscode.nix
     ./starship.nix
-    ./rofi/rofi.nix
     ./noctalia.nix
     ./git.nix
   ];
@@ -86,7 +85,6 @@
     };
 
     discord.enable = true;
-    rofi.enable = true;
     vicinae.enable = true;
   };
 

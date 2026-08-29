@@ -4,7 +4,7 @@
     ./hypr/hyprland.nix
     ./shell.nix
     ./vscode.nix
-    ./starship/starship.nix
+    ./starship.nix
     ./rofi/rofi.nix
     ./noctalia.nix
     ./git.nix

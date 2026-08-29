@@ -24,7 +24,6 @@
           capsule_padding = 14.0;
           capsule_thickness = 1.0;
           concave_edge_corners = true;
-          end = [ "cpu" "ram" "network" "bluetooth" "volume" "brightness" "battery" "notifications" "tray" ];
           font_family = "SF Pro Text";
           font_weight = 600;
           margin_edge = 0;

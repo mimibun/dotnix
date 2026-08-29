@@ -31,6 +31,7 @@
 
   networking.firewall = {
     enable = true;
+    checkReversePath = "loose";
     # make orcaslicer network stuff work
     allowedTCPPorts = [ 8883 ];
     allowedUDPPorts = [ 1990 2021 ];

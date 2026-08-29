@@ -8,7 +8,7 @@
     gnome.gnome-keyring.enable = true;
 
     openssh = {
-      enable = false;
+      enable = true;
       ports = [ 69 ];
       settings = {
         PasswordAuthentication = false;

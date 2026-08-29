@@ -19,13 +19,13 @@
     tig
     nmap
     tldr
-    brightnessctl
     dig
     bat
     s-tui
     pavucontrol
     gimp
     loupe
+    nautilus
 
     # shell
     zoxide
@@ -39,6 +39,7 @@
 
     # social
     signal-desktop
+    element-desktop
 
     # browsers
     ungoogled-chromium
@@ -51,12 +52,11 @@
     # programs
     obsidian
     spotify
-    freecad
-    flatpak
-    orca-slicer
-    nautilus
-    element-desktop
+    
+    # 3d
     prusa-slicer
+    orca-slicer
+    freecad
 
     # gaming
     prismlauncher

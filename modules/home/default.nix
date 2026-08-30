@@ -4,5 +4,4 @@
   imports = [
     ./common/default.nix
   ];
-  
 }

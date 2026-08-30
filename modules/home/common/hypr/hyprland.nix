@@ -7,12 +7,10 @@
     settings = {
       decoration = {
         "$mainMod" = "SUPER";
-        #"$terminal" = "kitty";
-        #"$fileManager" = "nautilus";
+        "$fileManager" = "nautilus";
         "$menu" = "vicinae";
 
         bind = [
-          "$mainMod, Q, exec, kitty"
           "bind = $mainMod, h, movefocus, l"
           "bind = $mainMod, l, movefocus, r"
           "bind = $mainMod, k, movefocus, u"
@@ -50,20 +48,17 @@
 
           "bind = $mainMod, Q, exec, $terminal"
           "bind = $mainMod, C, killactive,"
-          #"bind = $mainMod, E, exec, $fileManager"
+          "bind = $mainMod, E, exec, $fileManager"
           "bind = $mainMod, V, togglefloating, "
           "bind = $mainMod, space, exec, $menu toggle"
           "bind = $mainMod, O,exec, noctalia msg screenshot-region"
-          #"bind = $mainMod, P,exec,pavucontrol"
           "bind = ALT SHIFT, L, exec, noctalia msg session lock"
 
           "bind = $mainMod, S, togglespecialworkspace, magic"
         ];
 
         # Startup Apps
-        exec-once = [
-          "noctalia"
-        ];
+        exec-once = [ ];
 
         bindm = [
           # mouse movements
@@ -82,9 +77,9 @@
       bindel = , XF86AudioRaiseVolume, exec, noctalia msg volume-up
       bindel = , XF86AudioLowerVolume, exec, noctalia msg volume-down
       bindl = , XF86AudioMute, exec, noctalia msg volume-mute
-      bindl = , XF86AudioPlay, exec, playerctl play-pause
-      bindl = , XF86AudioPrev, exec, playerctl previous
-      bindl = , XF86AudioNext, exec, playerctl next
+      bindl = , XF86AudioPlay, exec, noctalia msg media toggle
+      bindl = , XF86AudioPrev, exec, noctalia msg media previous
+      bindl = , XF86AudioNext, exec, noctalia msg media next
       binde = , XF86MonBrightnessDown, exec, noctalia msg brightness-down
       binde = , XF86MonBrightnessUp, exec, noctalia msg brightness-up
       bindl=,switch:Lid Switch, exec, brightnessctl -d "tpacpi::kbd_backlight" set "2"; noctalia msg session lock

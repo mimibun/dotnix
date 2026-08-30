@@ -9,6 +9,8 @@
 
   programs.noctalia = {
     enable = true;
+    systemd.enable = true;
+
     settings = {
       accessibility = {
         ui_scale = 1.15;

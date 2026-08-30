@@ -43,6 +43,7 @@
           };
           modules = [
             home-manager.nixosModules.home-manager
+            noctalia-greeter.nixosModules.default
             
             {
               home-manager = {

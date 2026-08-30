@@ -31,10 +31,9 @@
 
   networking.firewall = {
     enable = true;
-    checkReversePath = "loose";
     # make orcaslicer network stuff work
     allowedTCPPorts = [ 8883 ];
-    allowedUDPPorts = [ 1990 2021 ];
+    allowedUDPPorts = [ 1990 2021 51820 ];
     
     extraCommands = ''
       iptables -I INPUT -m pkttype --pkt-type multicast -j ACCEPT

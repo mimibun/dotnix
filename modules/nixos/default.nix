@@ -4,8 +4,6 @@
     inputs.noctalia-greeter.nixosModules.default
   ];
 
-  networking.firewall.checkReversePath = "loose"; 
-
   services = {
     gnome.gnome-keyring.enable = true;
 

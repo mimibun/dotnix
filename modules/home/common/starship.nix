@@ -17,7 +17,7 @@
       };
       hostname = {
         ssh_only = true;
-        format = "[$ssh_symbol](bold blue) [on](subtext0) [$hostname](lavender) ";
+        format = "[$ssh_symbol](bold blue)[on](subtext0)[$hostname](lavender) ";
         disabled = false;
       };
       fill = {

@@ -6,6 +6,7 @@
     ./vscode.nix
     ./starship.nix
     ./noctalia.nix
+    ./vicinae.nix
     ./git.nix
   ];
 
@@ -85,7 +86,6 @@
     };
 
     discord.enable = true;
-    vicinae.enable = true;
   };
 
   xdg = { 

@@ -26,6 +26,10 @@
     gimp
     loupe
     nautilus
+    gnome-calculator
+    gnome-disk-utility
+    gnome-characters
+    gnome-font-viewer
 
     # shell
     zoxide

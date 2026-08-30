@@ -13,16 +13,16 @@
 
         bind = [
           "$mainMod, Q, exec, kitty"
-          "bind = $mainMod, left, movefocus, l"
-          "bind = $mainMod, right, movefocus, r"
-          "bind = $mainMod, up, movefocus, u"
-          "bind = $mainMod, down, movefocus, d"
+          "bind = $mainMod, h, movefocus, l"
+          "bind = $mainMod, l, movefocus, r"
+          "bind = $mainMod, k, movefocus, u"
+          "bind = $mainMod, j, movefocus, d"
           "bind = $mainMod,f,fullscreen "
 
-          "bind = $mainMod SHIFT, left, movewindow, l"
-          "bind = $mainMod SHIFT, right, movewindow, r"
-          "bind = $mainMod SHIFT, up, movewindow, u"
-          "bind = $mainMod SHIFT, down, movewindow, d"
+          "bind = $mainMod SHIFT, h, movewindow, l"
+          "bind = $mainMod SHIFT, l, movewindow, r"
+          "bind = $mainMod SHIFT, k, movewindow, u"
+          "bind = $mainMod SHIFT, j, movewindow, d"
 
           "bind = $mainMod, 1, workspace, 1"
           "bind = $mainMod, 2, workspace, 2"
@@ -55,7 +55,7 @@
           "bind = $mainMod, space, exec, $menu toggle"
           "bind = $mainMod, O,exec, noctalia msg screenshot-region"
           #"bind = $mainMod, P,exec,pavucontrol"
-          "bind = $mainMod, L, exec, noctalia msg session lock"
+          "bind = ALT SHIFT, L, exec, noctalia msg session lock"
 
           "bind = $mainMod, S, togglespecialworkspace, magic"
         ];

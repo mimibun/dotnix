@@ -7,6 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mango = {
+      url = "github:mangowm/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     apple-fonts = {
       url= "github:Lyndeno/apple-fonts.nix";
       inputs.nixpkgs.follows = "nixpkgs"; 
@@ -29,6 +33,7 @@
     {
       nixpkgs,
       home-manager,
+      mango,
       apple-fonts,
       noctalia-greeter,
       ...
@@ -67,6 +72,7 @@
           modules = [
             home-manager.nixosModules.home-manager
             noctalia-greeter.nixosModules.default
+            mango.nixosModules.mango
             
             {
               home-manager = {

@@ -1,6 +1,7 @@
 { lib, pkgs, inputs, ... }:
 {
   imports = [
+    ./mango.nix
     ./hyprland.nix
     ./shell.nix
     ./vscode.nix

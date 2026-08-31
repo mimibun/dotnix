@@ -72,7 +72,6 @@
           modules = [
             home-manager.nixosModules.home-manager
             noctalia-greeter.nixosModules.default
-            mango.nixosModules.mango
             
             {
               home-manager = {

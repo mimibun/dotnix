@@ -106,11 +106,11 @@
   programs = {
     fish.enable = true;
     firefox.enable = true;
-    hyprland = {
-      enable = true;
-      xwayland.enable = true;
-      withUWSM = true;
-    };
+    #hyprland = {
+    #  enable = true;
+    #  xwayland.enable = true;
+    #  withUWSM = true;
+    #};
   };
 
   nixpkgs.config.allowUnfree = true;

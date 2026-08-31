@@ -40,6 +40,7 @@
     gcc
     rustup
     uv
+    nodejs_26
 
     # social
     signal-desktop
@@ -89,7 +90,11 @@
       enableFishIntegration = true;
     };
 
-    discord.enable = true;
+    vesktop = {
+      enable = true;
+
+      vencord.settings = {};
+    };
   };
 
   xdg = { 

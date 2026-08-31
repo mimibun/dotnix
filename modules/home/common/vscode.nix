@@ -12,6 +12,7 @@
         catppuccin.catppuccin-vsc-icons
         bbenoist.nix
         fill-labs.dependi
+        bradlc.vscode-tailwindcss
         # cordx56.rustowl-vscode - isnt there yet i think  
       ];
 

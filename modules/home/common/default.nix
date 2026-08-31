@@ -1,7 +1,7 @@
 { lib, pkgs, inputs, ... }:
 {
   imports = [
-    ./hypr/hyprland.nix
+    ./hyprland.nix
     ./shell.nix
     ./vscode.nix
     ./starship.nix

@@ -15,7 +15,28 @@
         "SUPER,space,spawn,vicinae toggle"
         "SUPER,Q,spawn,kitty"
       	"SUPER,C,killclient"
+
+        "SUPER,h,focusdir,left"
+        "SUPER,j,focusdir,down"
+        "SUPER,k,focusdir,up"
+        "SUPER,l,focusdir,right"
       ];
-   };
+
+      blur = 1;
+      blur_optimized = 1;
+      blur_params = {
+        radius = 1;
+        num_passes = 2;
+      };
+
+      border_radius = 15;
+      focused_opacity = 1.0;
+
+      extraConfig = ''
+        exec-once=vicinae server
+        noctalia 
+      '';
+    };
+
   };
 }

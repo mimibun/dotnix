@@ -80,12 +80,6 @@
   };
 
   programs = {
-    # kitty = {
-    #   enable = true;
-    #   themeFile = "Catppuccin-Macchiato";
-    #   extraConfig = builtins.readFile ./kitty/kitty.conf;
-    #   shellIntegration.enableFishIntegration = true;
-    # };
     zoxide = {
       enable = true;
       enableFishIntegration = true;

@@ -33,8 +33,8 @@
           "bind = $mainMod, 8, workspace, 8"
           "bind = $mainMod, 9, workspace, 9"
           "bind = $mainMod, 0, workspace, 10"
-          "bind = $mainMod,Page_Up,workspace,e-1"
-          "bind = $mainMod,Page_Down,workspace,e+1"
+          "bind = $mainMod CTRL,h,workspace,e-1"
+          "bind = $mainMod CTRL,l,workspace,e+1"
 
           "bind = $mainMod SHIFT, 1, movetoworkspace, 1"
           "bind = $mainMod SHIFT, 2, movetoworkspace, 2"

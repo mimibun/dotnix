@@ -25,6 +25,7 @@
     s-tui
     pavucontrol
     gimp
+    hyfetch
     loupe
     nautilus
     gnome-calculator

@@ -32,6 +32,7 @@
     gnome-disk-utility
     gnome-characters
     gnome-font-viewer
+    hyfetch
 
     # shell
     zoxide

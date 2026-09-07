@@ -22,6 +22,8 @@
     tldr
     dig
     bat
+    fzf
+    vlc
     s-tui
     pavucontrol
     gimp
@@ -33,6 +35,7 @@
     gnome-characters
     gnome-font-viewer
     hyfetch
+    hyprpicker
 
     # shell
     zoxide

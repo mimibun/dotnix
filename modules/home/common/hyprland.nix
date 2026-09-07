@@ -71,10 +71,6 @@
     };
 
     extraConfig = ''
-      # l -> do stuff even when locked
-      # e -> repeats when key is held 
-
-      #--media-keys---
       bindel = , XF86AudioRaiseVolume, exec, noctalia msg volume-up
       bindel = , XF86AudioLowerVolume, exec, noctalia msg volume-down
       bindl = , XF86AudioMute, exec, noctalia msg volume-mute

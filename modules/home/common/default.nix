@@ -4,7 +4,7 @@
     ./hyprland.nix
     ./kitty.nix
     ./shell.nix
-    ./vscode.nix
+    ./codium.nix
     ./starship.nix
     ./noctalia.nix
     ./vicinae.nix

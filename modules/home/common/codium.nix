@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  programs.vscode = {
+  programs.vscodium-fhs = {
     enable = true;
     
     profiles.default = {
@@ -13,7 +13,7 @@
         bbenoist.nix
         fill-labs.dependi
         bradlc.vscode-tailwindcss
-        # brettm12345.nixfmt-vscode
+        brettm12345.nixfmt-vscode
         # cordx56.rustowl-vscode - isnt there yet i think  
       ];
 

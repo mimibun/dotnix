@@ -1,4 +1,8 @@
-{ lib, pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  ...
+}:
 {
   imports = [
     ./hyprland.nix
@@ -47,6 +51,8 @@
     rustup
     uv
     nodejs_26
+    nixfmt
+    nil
 
     # social
     signal-desktop
@@ -63,7 +69,7 @@
     # programs
     obsidian
     spotify
-    
+
     # 3d
     prusa-slicer
     orca-slicer
@@ -93,31 +99,31 @@
     vesktop = {
       enable = true;
 
-      vencord.settings = {};
+      vencord.settings = { };
     };
   };
 
-  xdg = { 
+  xdg = {
     enable = true;
 
     desktopEntries.loupe = {
       name = "Loupe";
       exec = "${pkgs.loupe}/bin/loupe";
-    };    
+    };
 
     mime.enable = true;
     mimeApps = {
       enable = true;
       defaultApplications = {
-        "x-scheme-handler/http" = ["firefox.desktop"];
-        "x-scheme-handler/https" = ["firefox.desktop"];
-        "x-scheme-handler/about" = ["firefox.desktop"];
-        "x-scheme-handler/unknown" = ["firefox.desktop"];
-        "image/png" = ["loupe.desktop"];
-        "image/jpg" = ["loupe.desktop"];
-        "image/jpeg" = ["loupe.desktop"];
-        "image/bmp" = ["loupe.desktop"];
+        "x-scheme-handler/http" = [ "firefox.desktop" ];
+        "x-scheme-handler/https" = [ "firefox.desktop" ];
+        "x-scheme-handler/about" = [ "firefox.desktop" ];
+        "x-scheme-handler/unknown" = [ "firefox.desktop" ];
+        "image/png" = [ "loupe.desktop" ];
+        "image/jpg" = [ "loupe.desktop" ];
+        "image/jpeg" = [ "loupe.desktop" ];
+        "image/bmp" = [ "loupe.desktop" ];
       };
-    }; 
+    };
   };
 }

@@ -21,7 +21,7 @@
     extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
   };
 
-  outputs = 
+  outputs =
     {
       nixpkgs,
       home-manager,

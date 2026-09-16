@@ -1,20 +1,21 @@
 { pkgs, ... }:
 {
-  programs.vscodium-fhs = {
+  programs.vscodium = {
     enable = true;
-    
+    package = pkgs.vscodium.fhs;
+
     profiles.default = {
       extensions = with pkgs.vscode-extensions; [
+        bbenoist.nix
+        jnoortheen.nix-ide
         rust-lang.rust-analyzer
         tamasfe.even-better-toml
         vscodevim.vim
         catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
-        bbenoist.nix
         fill-labs.dependi
         bradlc.vscode-tailwindcss
-        brettm12345.nixfmt-vscode
-        # cordx56.rustowl-vscode - isnt there yet i think  
+        # cordx56.rustowl-vscode - isnt there yet i think
       ];
 
       userSettings = {
@@ -26,16 +27,26 @@
         "editor.inlayHints.enabled" = "off";
         "editor.minimap.enabled" = false;
         "editor.stickyScroll.enabled" = false;
+        "editor.formatOnSave" = true;
         "explorer.confirmDelete" = false;
         "terminal.integrated.cursorStyle" = "line";
         "github.copilot.editor.enableAutoCompletions" = false;
         "files.exclude" = {
-        "**/.DS_Store" = false;
-        "**/.git" = false;
-        "**/.hg" = false;
-        "**/.svn" = false;
-        "**/CVS" = false;
-        "**/Thumbs.db" = false;
+          "**/.DS_Store" = false;
+          "**/.git" = false;
+          "**/.hg" = false;
+          "**/.svn" = false;
+          "**/CVS" = false;
+          "**/Thumbs.db" = false;
+        };
+        "nix.enableLanguageServer" = true;
+        "nix.serverPath" = "nil";
+        "nix.serverSettings" = {
+          "nil" = {
+            "formatting" = {
+              "command" = [ "nixfmt" ];
+            };
+          };
         };
         "terminal.integrated.fontFamily" = "Maple Mono NF";
         "terminal.integrated.fontWeight" = "600";

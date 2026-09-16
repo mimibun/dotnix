@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }:
 {
   services = {
+
     gnome.gnome-keyring.enable = true;
 
     openssh = {
@@ -11,23 +12,21 @@
         PermitRootLogin = "no";
       };
     };
+
+    displayManager.noctalia-greeter = {
+      enable = true;
+      settings = {
+        cursor.size = 24;
+        keyboard.layout = "de";
+      };
+      cursorTheme = {
+        package = pkgs.bibata-cursors;
+        name = "Bibata-Modern-Ice";
+      };
+    };
   };
 
   programs = {
-    noctalia-greeter = {
-      enable = true;
-      greeter-args = "";
-      settings = {
-        cursor = {
-          theme = "Bibata-Modern-Ice";
-          size = 24;
-          path = "${pkgs.bibata-cursors}/share/icons";
-        };
-        keyboard = {
-          layout = "de";
-        };
-      };
-    };
 
    ioquake3 = {
       baseq3 = "/home/mimi/.local/state/Quake3";

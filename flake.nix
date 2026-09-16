@@ -14,10 +14,6 @@
     noctalia = {
       url = "github:noctalia-dev/noctalia/cachix";
     };
-    noctalia-greeter = {
-      url = "github:noctalia-dev/noctalia-greeter";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   nixConfig = {
@@ -30,7 +26,6 @@
       nixpkgs,
       home-manager,
       apple-fonts,
-      noctalia-greeter,
       ...
     }@inputs:
     {
@@ -43,7 +38,6 @@
           };
           modules = [
             home-manager.nixosModules.home-manager
-            noctalia-greeter.nixosModules.default
             
             {
               home-manager = {
@@ -66,7 +60,6 @@
           };
           modules = [
             home-manager.nixosModules.home-manager
-            noctalia-greeter.nixosModules.default
             
             {
               home-manager = {

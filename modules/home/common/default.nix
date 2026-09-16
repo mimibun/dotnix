@@ -67,7 +67,7 @@
     # 3d
     prusa-slicer
     orca-slicer
-    freecad
+    # freecad
 
     # gaming
     prismlauncher

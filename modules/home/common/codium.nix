@@ -5,18 +5,27 @@
     package = pkgs.vscodium.fhs;
 
     profiles.default = {
-      extensions = with pkgs.vscode-extensions; [
-        bbenoist.nix
-        jnoortheen.nix-ide
-        rust-lang.rust-analyzer
-        tamasfe.even-better-toml
-        vscodevim.vim
-        catppuccin.catppuccin-vsc
-        catppuccin.catppuccin-vsc-icons
-        fill-labs.dependi
-        bradlc.vscode-tailwindcss
-        # cordx56.rustowl-vscode - isnt there yet i think
-      ];
+      extensions =
+        with pkgs.vscode-extensions;
+        [
+          bbenoist.nix
+          jnoortheen.nix-ide
+          rust-lang.rust-analyzer
+          tamasfe.even-better-toml
+          vscodevim.vim
+          catppuccin.catppuccin-vsc
+          catppuccin.catppuccin-vsc-icons
+          fill-labs.dependi
+          bradlc.vscode-tailwindcss
+        ]
+        ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+          {
+            name = "rustowl-vscode";
+            publisher = "cordx56";
+            version = "0.4.0";
+            sha256 = "9c183110877a994eff763fdaa0f6aabd53e118f72116a6741d44325781e38bc3";
+          }
+        ];
 
       userSettings = {
         "workbench.colorTheme" = "Catppuccin Macchiato";

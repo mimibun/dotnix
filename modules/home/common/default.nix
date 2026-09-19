@@ -1,10 +1,15 @@
-{ lib, pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  ...
+}:
 {
   imports = [
     ./mango.nix
     ./hyprland.nix
+    ./kitty.nix
     ./shell.nix
-    ./vscode.nix
+    ./codium.nix
     ./starship.nix
     ./noctalia.nix
     ./vicinae.nix
@@ -22,15 +27,20 @@
     tldr
     dig
     bat
+    fzf
+    vlc
     s-tui
     pavucontrol
     gimp
+    hyfetch
     loupe
     nautilus
     gnome-calculator
     gnome-disk-utility
     gnome-characters
     gnome-font-viewer
+    hyfetch
+    hyprpicker
 
     # shell
     zoxide
@@ -41,6 +51,9 @@
     gcc
     rustup
     uv
+    nodejs_26
+    nixfmt
+    nil
 
     # social
     signal-desktop
@@ -57,11 +70,11 @@
     # programs
     obsidian
     spotify
-    
+
     # 3d
     prusa-slicer
     orca-slicer
-    freecad
+    # freecad
 
     # gaming
     prismlauncher
@@ -79,41 +92,39 @@
   };
 
   programs = {
-    kitty = {
-      enable = true;
-      themeFile = "Catppuccin-Macchiato";
-      extraConfig = builtins.readFile ./kitty/kitty.conf;
-      shellIntegration.enableFishIntegration = true;
-    };
     zoxide = {
       enable = true;
       enableFishIntegration = true;
     };
 
-    discord.enable = true;
+    vesktop = {
+      enable = true;
+
+      vencord.settings = { };
+    };
   };
 
-  xdg = { 
+  xdg = {
     enable = true;
 
     desktopEntries.loupe = {
       name = "Loupe";
       exec = "${pkgs.loupe}/bin/loupe";
-    };    
+    };
 
     mime.enable = true;
     mimeApps = {
       enable = true;
       defaultApplications = {
-        "x-scheme-handler/http" = ["firefox.desktop"];
-        "x-scheme-handler/https" = ["firefox.desktop"];
-        "x-scheme-handler/about" = ["firefox.desktop"];
-        "x-scheme-handler/unknown" = ["firefox.desktop"];
-        "image/png" = ["loupe.desktop"];
-        "image/jpg" = ["loupe.desktop"];
-        "image/jpeg" = ["loupe.desktop"];
-        "image/bmp" = ["loupe.desktop"];
+        "x-scheme-handler/http" = [ "firefox.desktop" ];
+        "x-scheme-handler/https" = [ "firefox.desktop" ];
+        "x-scheme-handler/about" = [ "firefox.desktop" ];
+        "x-scheme-handler/unknown" = [ "firefox.desktop" ];
+        "image/png" = [ "loupe.desktop" ];
+        "image/jpg" = [ "loupe.desktop" ];
+        "image/jpeg" = [ "loupe.desktop" ];
+        "image/bmp" = [ "loupe.desktop" ];
       };
-    }; 
+    };
   };
 }

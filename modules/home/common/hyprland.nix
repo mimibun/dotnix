@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   wayland.windowManager.hyprland = {
     enable = false;
@@ -33,8 +33,8 @@
           "bind = $mainMod, 8, workspace, 8"
           "bind = $mainMod, 9, workspace, 9"
           "bind = $mainMod, 0, workspace, 10"
-          "bind = $mainMod,Page_Up,workspace,e-1"
-          "bind = $mainMod,Page_Down,workspace,e+1"
+          "bind = $mainMod CTRL,h,workspace,e-1"
+          "bind = $mainMod CTRL,l,workspace,e+1"
 
           "bind = $mainMod SHIFT, 1, movetoworkspace, 1"
           "bind = $mainMod SHIFT, 2, movetoworkspace, 2"
@@ -71,10 +71,6 @@
     };
 
     extraConfig = ''
-      # l -> do stuff even when locked
-      # e -> repeats when key is held 
-
-      #--media-keys---
       bindel = , XF86AudioRaiseVolume, exec, noctalia msg volume-up
       bindel = , XF86AudioLowerVolume, exec, noctalia msg volume-down
       bindl = , XF86AudioMute, exec, noctalia msg volume-mute
@@ -154,8 +150,12 @@
           col.active_border = rgba($pinkAlpha78)
           col.inactive_border = rgba($surface0Alpha7B)
           resize_on_border = true
-          layout = dwindle
+          layout = master
           allow_tearing = false
+      }
+
+      master {
+          mfact = 0.55
       }
 
       decoration {
@@ -167,7 +167,7 @@
               popups = true
               layerrule = blur on, match:namespace vicinae
           }
- 
+
           shadow {
               enabled = false
               range = 14
@@ -180,7 +180,7 @@
           kb_layout = de
           kb_variant =
           kb_model =
-          kb_options =
+          kb_options = ctrl:nocaps
           kb_rules =
           repeat_delay = 200
           repeat_rate = 50

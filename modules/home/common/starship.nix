@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ ... }:
 {
   programs.starship = {
     enable = true;
@@ -51,7 +51,7 @@
         repo_root_style = "green";
         repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($repo_root_style)[$read_only]($read_only_style) - ";
         substitutions = {
-          
+
         };
       };
       time = {

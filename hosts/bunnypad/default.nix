@@ -1,9 +1,12 @@
-{ config, lib, pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
-  imports = [ 
-      ./hardware-configuration.nix
-      ../../modules/nixos/default.nix
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/nixos/default.nix
   ];
 
   services.fwupd.enable = true;
@@ -17,7 +20,7 @@
   services.logind.settings.Login = {
     HandleLidSwitch = "suspend";
   };
-  
+
   services.thermald.enable = true;
 
   services.gvfs.enable = true;
@@ -33,8 +36,12 @@
     enable = true;
     # make orcaslicer network stuff work
     allowedTCPPorts = [ 8883 ];
-    allowedUDPPorts = [ 1990 2021 51820 ];
-    
+    allowedUDPPorts = [
+      1990
+      2021
+      51820
+    ];
+
     extraCommands = ''
       iptables -I INPUT -m pkttype --pkt-type multicast -j ACCEPT
     '';
@@ -45,7 +52,7 @@
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
-      intel-media-driver 
+      intel-media-driver
       vpl-gpu-rt
     ];
   };
@@ -76,13 +83,13 @@
     sddm = {
       enable = true;
       wayland.enable = true;
-    }; 
+    };
     autoLogin = {
       enable = false;
       user = "mimi";
     };
   };
-      
+
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -92,9 +99,10 @@
   services.xserver.xkb = {
     layout = "de";
     variant = "";
+    options = "ctrl:nocaps";
   };
 
-  console.keyMap = "de";
+  console.useXkbConfig = true;
 
   services.printing.enable = true;
 
@@ -110,7 +118,10 @@
   users.users."mimi" = {
     isNormalUser = true;
     description = "mimi";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.fish;
   };
   programs.fish.enable = true;
@@ -125,20 +136,23 @@
     programs.home-manager.enable = true;
 
     programs.fish.shellAliases = {
-      nsw = "sudo nixos-rebuild switch --flake '.#bunnypad'"; 
+      nsw = "sudo nixos-rebuild switch --flake '.#bunnypad'";
     };
 
     imports = map (x: ../../modules + x) [
       /home
       /home/bunnypad
-    ]; 
+    ];
   };
 
   programs.firefox.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
+  environment.pathsToLink = [
+    "/share/applications"
+    "/share/xdg-desktop-portal"
+  ];
   environment.systemPackages = with pkgs; [
     vim
     git
@@ -154,10 +168,10 @@
 
   nix = {
     settings.experimental-features = [
-       "nix-command"
-       "flakes"
+      "nix-command"
+      "flakes"
     ];
-    
+
     gc = {
       automatic = true;
       dates = "weekly";
@@ -167,6 +181,6 @@
 
     optimise.automatic = true;
   };
-  
-  system.stateVersion = "26.05"; 
+
+  system.stateVersion = "26.05";
 }

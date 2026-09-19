@@ -1,7 +1,5 @@
 {
-  config,
   inputs,
-  lib,
   ...
 }:
 {
@@ -43,7 +41,12 @@
         warning_threshold = 15;
       };
       control_center = {
-        hidden_tabs = [ "media" "weather" "notifications" "screen-time" ];
+        hidden_tabs = [
+          "media"
+          "weather"
+          "notifications"
+          "screen-time"
+        ];
         calendar = {
           show_week_numbers = true;
         };

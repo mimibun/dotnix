@@ -5,13 +5,13 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ 
-      ./hardware-configuration.nix
-      ../../modules/nixos/default.nix
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/nixos/default.nix
   ];
 
   hardware.graphics.enable = true;
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     modesetting.enable = true;
     open = false;
@@ -29,8 +29,11 @@
       enable = true;
 
       allowedTCPPorts = [ 8883 ];
-      allowedUDPPorts = [ 1990 2021 ];
-    
+      allowedUDPPorts = [
+        1990
+        2021
+      ];
+
       extraCommands = ''
         iptables -I INPUT -m pkttype --pkt-type multicast -j ACCEPT
       '';
@@ -76,7 +79,10 @@
   users.users."mimi" = {
     isNormalUser = true;
     description = "mimi";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       kitty
       vscode
@@ -94,13 +100,13 @@
     };
 
     programs.fish.shellAliases = {
-      nsw = "sudo nixos-rebuild switch --flake '.#bunnystation'"; 
+      nsw = "sudo nixos-rebuild switch --flake '.#bunnystation'";
     };
 
     imports = map (x: ../../modules + x) [
       /home
       /home/bunnystation
-    ]; 
+    ];
   };
 
   programs = {
@@ -122,10 +128,10 @@
 
   nix = {
     settings.experimental-features = [
-       "nix-command"
-       "flakes"
+      "nix-command"
+      "flakes"
     ];
-    
+
     gc = {
       automatic = true;
       dates = "weekly";

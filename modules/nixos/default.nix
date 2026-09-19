@@ -28,7 +28,7 @@
 
   programs = {
 
-   ioquake3 = {
+    ioquake3 = {
       baseq3 = "/home/mimi/.local/state/Quake3";
       enable = true;
       settings = {

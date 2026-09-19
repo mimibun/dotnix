@@ -3,7 +3,7 @@
   programs.vicinae = {
     enable = true;
     systemd = {
-      enable = true; 
+      enable = true;
       autoStart = true;
     };
 
@@ -25,7 +25,7 @@
     themes = {
       mimi-cotton-candy = {
         meta = {
-          version = 1;  
+          version = 1;
           name = "mimis theme :3";
           description = "a pastel-y cotton candy kinda theme";
           variant = "dark";

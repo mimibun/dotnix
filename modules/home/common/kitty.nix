@@ -20,7 +20,7 @@
       cursor_beam_thickness 2
       cursor_trail 1
       cursor_trail_decay 0.1 0.4
-      
+
       foreground              #CAD3F5
       # background              #24273A
       background              #654588

@@ -8,8 +8,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     apple-fonts = {
-      url= "github:Lyndeno/apple-fonts.nix";
-      inputs.nixpkgs.follows = "nixpkgs"; 
+      url = "github:Lyndeno/apple-fonts.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia = {
       url = "github:noctalia-dev/noctalia/cachix";
@@ -18,7 +18,9 @@
 
   nixConfig = {
     extra-substituters = [ "https://noctalia.cachix.org" ];
-    extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
+    extra-trusted-public-keys = [
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+    ];
   };
 
   outputs =
@@ -33,12 +35,12 @@
         bunnypad = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {
-            inherit inputs;            
+            inherit inputs;
             username = "mimi";
           };
           modules = [
             home-manager.nixosModules.home-manager
-            
+
             {
               home-manager = {
                 useGlobalPkgs = true;
@@ -47,7 +49,7 @@
                 backupFileExtension = "backup";
               };
             }
-            
+
             ./hosts/bunnypad
           ];
         };
@@ -55,12 +57,12 @@
         bunnystation = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {
-            inherit inputs;            
+            inherit inputs;
             username = "mimi";
           };
           modules = [
             home-manager.nixosModules.home-manager
-            
+
             {
               home-manager = {
                 useGlobalPkgs = true;
@@ -75,5 +77,5 @@
         };
       };
 
-  };
+    };
 }

@@ -150,8 +150,12 @@
           col.active_border = rgba($pinkAlpha78)
           col.inactive_border = rgba($surface0Alpha7B)
           resize_on_border = true
-          layout = dwindle
+          layout = master
           allow_tearing = false
+      }
+
+      master {
+          mfact = 0.55
       }
 
       decoration {

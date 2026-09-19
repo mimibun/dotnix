@@ -163,7 +163,7 @@
               popups = true
               layerrule = blur on, match:namespace vicinae
           }
- 
+
           shadow {
               enabled = false
               range = 14
@@ -176,7 +176,7 @@
           kb_layout = de
           kb_variant =
           kb_model =
-          kb_options =
+          kb_options = ctrl:nocaps
           kb_rules =
           repeat_delay = 200
           repeat_rate = 50

@@ -7,6 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri = {
+      url = "github:epireyn/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     apple-fonts = {
       url = "github:Lyndeno/apple-fonts.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,8 +30,9 @@
   outputs =
     {
       nixpkgs,
-      home-manager,
+      niri,
       apple-fonts,
+      home-manager,
       ...
     }@inputs:
     {
@@ -40,6 +45,7 @@
           };
           modules = [
             home-manager.nixosModules.home-manager
+            niri.nixosModules.niri
 
             {
               home-manager = {
@@ -62,6 +68,7 @@
           };
           modules = [
             home-manager.nixosModules.home-manager
+            niri.nixosModules.niri
 
             {
               home-manager = {

@@ -27,6 +27,7 @@
   };
 
   programs = {
+    niri.enable = true;
 
     ioquake3 = {
       baseq3 = "/home/mimi/.local/state/Quake3";

@@ -18,7 +18,10 @@
   services.upower.enable = true;
 
   services.logind.settings.Login = {
+    HandlePowerKey = "ignore";
+    HandlePowerKeyLongPress = "poweroff";
     HandleLidSwitch = "suspend";
+    HandleSuspendKey = "ignore";
   };
 
   services.thermald.enable = true;
@@ -103,10 +106,10 @@
 
   console.useXkbConfig = true;
 
-  services.printing.enable = true;
-
-  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
+
+  services.printing.enable = true;
+  services.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     alsa.enable = true;

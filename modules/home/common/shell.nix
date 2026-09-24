@@ -8,6 +8,7 @@
       ff = "zi";
       l = "lsd --tree --depth '1' --group-directories-first";
       ls = "lsd -la";
+      sk = "ssh-keygen -K";
     };
     interactiveShellInit = ''
       set fish_greeting

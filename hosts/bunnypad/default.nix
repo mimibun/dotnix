@@ -11,8 +11,10 @@
 
   services.fwupd.enable = true;
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
 
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
@@ -33,21 +35,19 @@
     networkmanager = {
       enable = true;
     };
-  };
-
-  networking.firewall = {
-    enable = true;
-    # make orcaslicer network stuff work
-    allowedTCPPorts = [ 8883 ];
-    allowedUDPPorts = [
-      1990
-      2021
-      51820
-    ];
-
-    extraCommands = ''
-      iptables -I INPUT -m pkttype --pkt-type multicast -j ACCEPT
-    '';
+    firewall = {
+      enable = true;
+      # make orcaslicer network stuff work
+      allowedTCPPorts = [ 8883 ];
+      allowedUDPPorts = [
+        1990
+        2021
+        51820
+      ];
+      extraCommands = ''
+        iptables -I INPUT -m pkttype --pkt-type multicast -j ACCEPT
+      '';
+    };
   };
 
   hardware.bluetooth.enable = true;

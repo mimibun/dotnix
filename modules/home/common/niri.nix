@@ -50,6 +50,12 @@
           left = -4;
           right = -4;
         };
+        preset-column-widths = [
+          { proportion = 1. / 3.; }
+          { proportion = 1. / 2.; }
+          { proportion = 2. / 3.; }
+          { proportion = 1. / 1.; }
+        ];
       };
 
       window-rules = [
@@ -61,15 +67,39 @@
             top-right = 16.0;
           };
           clip-to-geometry = true;
+          background-effect = {
+            blur = true;
+            xray = false;
+          };
+          popups.background-effect = {
+            blur = true;
+            xray = false;
+          };
         }
       ];
 
       layer-rules = [
         {
+          background-effect.xray = false;
+        }
+        {
           matches = [ { namespace = "^noctalia-backdrop"; } ];
           place-within-backdrop = true;
         }
+        {
+          matches = [ { namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"; } ];
+          background-effect = {
+            xray = false;
+          };
+        }
       ];
+
+      blur = {
+        enable = true;
+        passes = 4;
+        offset = 0.5;
+        saturation = 1.0;
+      };
 
       # binds
       binds = with config.lib.niri.actions; {
@@ -119,6 +149,11 @@
         };
         "Mod+Shift+L" = {
           action = move-column-right;
+        };
+
+        # resizing
+        "Mod+R" = {
+          action = switch-preset-column-width;
         };
 
         "Mod+W".action = toggle-column-tabbed-display;

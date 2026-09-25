@@ -11,7 +11,6 @@
         "bluetooth"
         "volume"
         "notifications"
-        "tray"
       ];
     };
   };

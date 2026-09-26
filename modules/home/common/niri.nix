@@ -39,6 +39,18 @@
         # todo : mouse config stuff
       };
 
+      recent-windows = {
+        highlight = {
+          active-color = "#00ff00ff";
+          urgent-color = "#ff0000ff";
+          padding = 12;
+          corner-radius = 16;
+        };
+        previews = {
+          max-scale = 0.3;
+        };
+      };
+
       prefer-no-csd = true;
 
       layout = {
@@ -75,6 +87,9 @@
             blur = true;
             xray = false;
           };
+          focus-ring = {
+            enable = true;
+          };
         }
       ];
 
@@ -110,7 +125,7 @@
           "vicinae"
           "toggle"
         ];
-        "Mod+O" = {
+        "Mod+Tab" = {
           repeat = false;
           action = toggle-overview;
         };
@@ -155,8 +170,22 @@
         "Mod+R" = {
           action = switch-preset-column-width;
         };
+        "Mod+Ctrl+R" = {
+          action = switch-preset-column-width-back;
+        };
 
         "Mod+W".action = toggle-column-tabbed-display;
+
+        # lock session
+        "Alt+Shift+L".action.spawn = [
+          "noctalia"
+          "msg"
+          "session"
+          "lock"
+        ];
+
+        # screenshot
+        "Print".action.screenshot = [ ];
 
         # media keys
         "XF86AudioRaiseVolume" = {

@@ -1,7 +1,13 @@
-{ config, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   programs.niri = {
     settings = {
+      xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
       # input stuff
       input = {
         keyboard = {
@@ -132,7 +138,7 @@
 
         # focusing
         "Mod+H" = {
-          action = focus-column-left;
+          action = focus-column-or-monitor-left;
         };
         "Mod+J" = {
           action = focus-window-or-workspace-down;
@@ -141,12 +147,12 @@
           action = focus-window-or-workspace-up;
         };
         "Mod+L" = {
-          action = focus-column-right;
+          action = focus-column-or-monitor-right;
         };
 
         # moving
         "Mod+Shift+H" = {
-          action = move-column-left;
+          action = move-column-left-or-to-monitor-left;
         };
         "Mod+Shift+J" = {
           action = move-window-to-workspace-down;
@@ -155,7 +161,7 @@
           action = move-window-to-workspace-up;
         };
         "Mod+Shift+L" = {
-          action = move-column-right;
+          action = move-column-right-or-to-monitor-right;
         };
 
         # resizing

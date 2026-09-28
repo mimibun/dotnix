@@ -5,7 +5,6 @@
 }:
 {
   imports = [
-    # ./hyprland.nix
     ./niri.nix
     ./kitty.nix
     ./shell.nix

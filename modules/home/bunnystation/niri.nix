@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
   programs.niri = {
     settings = {
@@ -28,6 +28,16 @@
           position.y = 0;
           scale = 1;
           focus-at-startup = true;
+        };
+      };
+      binds = with config.lib.niri.actions; {
+        "Mod+WheelScrollUp" = {
+          cooldown-ms = 150;
+          action = focus-workspace-up;
+        };
+        "Mod+WheelScrollDown" = {
+          cooldown-ms = 150;
+          action = focus-workspace-down;
         };
       };
     };

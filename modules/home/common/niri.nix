@@ -68,6 +68,15 @@
           { proportion = 2. / 3.; }
           { proportion = 1. / 1.; }
         ];
+        focus-ring = {
+          enable = true;
+          width = 5;
+          active.gradient = {
+            from = "#c6a0f6";
+            to = "#b7bdf8";
+            angle = 67;
+          };
+        };
       };
 
       window-rules = [
@@ -86,9 +95,6 @@
           popups.background-effect = {
             blur = true;
             xray = false;
-          };
-          focus-ring = {
-            enable = true;
           };
         }
       ];
@@ -172,6 +178,9 @@
         };
         "Mod+Ctrl+R" = {
           action = switch-preset-column-width-back;
+        };
+        "Mod+F" = {
+          action = maximize-column;
         };
 
         "Mod+W".action = toggle-column-tabbed-display;

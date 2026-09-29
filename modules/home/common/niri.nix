@@ -257,6 +257,14 @@
           ];
         };
       };
+      gestures = {
+        dnd-edge-view-scroll = {
+          max-speed = 30000;
+          trigger-width = 10000;
+          delay-ms = 30000;
+        };
+        hot-corners.enable = false;
+      };
     };
   };
 }

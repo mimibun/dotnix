@@ -27,7 +27,6 @@
           position.x = 2560;
           position.y = 0;
           scale = 1;
-          focus-at-startup = true;
         };
       };
       binds = with config.lib.niri.actions; {

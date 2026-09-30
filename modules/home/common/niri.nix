@@ -48,11 +48,17 @@
       layout = {
         empty-workspace-above-first = true;
 
+        # struts = {
+        #   top = -4;
+        #   bottom = -4;
+        #   left = -4;
+        #   right = -4;
+        # };
         struts = {
-          top = -4;
-          bottom = -4;
-          left = -4;
-          right = -4;
+          top = 0;
+          bottom = 0;
+          left = 0;
+          right = 0;
         };
         preset-column-widths = [
           { proportion = 1. / 3.; }
@@ -259,6 +265,7 @@
       };
       gestures = {
         dnd-edge-view-scroll = {
+          # idk what im doing here, why cant i just disable this? :c
           max-speed = 30000;
           trigger-width = 10000;
           delay-ms = 30000;

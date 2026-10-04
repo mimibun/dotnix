@@ -6,6 +6,27 @@
     ../../modules/nixos/default.nix
   ];
 
+  fileSystems = {
+    "/mnt/games" = {
+      device = "/dev/disk/by-uuid/30EA92A7EA9268BC";
+      fsType = "ntfs";
+      options = [ "nofail" ];
+    };
+
+    "/mnt/misc" = {
+      device = "/dev/disk/by-uuid/C8947D83947D7532";
+      fsType = "ntfs";
+      options = [ "nofail" ];
+    };
+    "/mnt/games2" = {
+      device = "/dev/disk/by-uuid/BC3257063256C4D4";
+      fsType = "ntfs";
+      options = [ "nofail" ];
+    };
+  };
+
+  services.gvfs.enable = true;
+
   # make nvidia stuff work
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
@@ -68,6 +89,17 @@
   };
   console.keyMap = "de";
 
+  services.udev = {
+    packages = with pkgs; [
+      qmk
+      qmk-udev-rules
+      qmk_hid
+      via
+      vial
+    ];
+  };
+  hardware.keyboard.qmk.enable = true;
+
   # audio and bluetooth
   hardware.bluetooth.enable = true;
 
@@ -82,6 +114,11 @@
     };
   };
   security.rtkit.enable = true;
+
+  services.usbmuxd = {
+    enable = true;
+    package = pkgs.usbmuxd2;
+  };
 
   # here i spawn myself
   users.users."mimi" = {
@@ -125,6 +162,12 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    qmk
+    qmk-udev-rules
+    qmk_hid
+    via
+    vial
+    dos2unix
     vim
     git
   ];

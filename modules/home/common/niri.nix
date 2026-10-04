@@ -10,6 +10,7 @@
       xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
       # input stuff
       input = {
+        mod-key = "Super";
         keyboard = {
           xkb = {
             layout = "de";
@@ -179,6 +180,9 @@
         };
         "Mod+F" = {
           action = maximize-column;
+        };
+        "Mod+Shift+F" = {
+          action = fullscreen-window;
         };
 
         "Mod+W".action = toggle-column-tabbed-display;

@@ -40,6 +40,8 @@
     gnome-font-viewer
     hyfetch
     hyprpicker
+    libimobiledevice
+    ifuse
 
     # shell
     zoxide

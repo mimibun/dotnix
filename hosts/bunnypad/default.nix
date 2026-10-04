@@ -96,6 +96,7 @@
   services.xserver.xkb = {
     layout = "de";
     variant = "";
+    options = "ctrl:nocaps";
   };
 
   console.useXkbConfig = true;

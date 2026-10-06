@@ -49,12 +49,6 @@
       layout = {
         empty-workspace-above-first = true;
 
-        # struts = {
-        #   top = -4;
-        #   bottom = -4;
-        #   left = -4;
-        #   right = -4;
-        # };
         struts = {
           top = 0;
           bottom = 0;

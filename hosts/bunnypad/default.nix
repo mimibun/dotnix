@@ -19,6 +19,8 @@
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
 
+  services.fprintd.enable = true;
+
   services.logind.settings.Login = {
     HandlePowerKey = "ignore";
     HandlePowerKeyLongPress = "poweroff";

@@ -42,6 +42,7 @@
     hyprpicker
     libimobiledevice
     ifuse
+    usbmuxd
 
     # shell
     zoxide
@@ -58,7 +59,6 @@
 
     # social
     signal-desktop
-    element-desktop
 
     # browsers
     ungoogled-chromium
@@ -72,10 +72,11 @@
     obsidian
     spotify
 
-    # 3d
+    # creative
     prusa-slicer
     orca-slicer
     freecad
+    aseprite
 
     # gaming
     prismlauncher

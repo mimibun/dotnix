@@ -30,7 +30,6 @@
     vlc
     s-tui
     pavucontrol
-    gimp
     hyfetch
     loupe
     nautilus
@@ -43,6 +42,7 @@
     libimobiledevice
     ifuse
     usbmuxd
+    iloader
 
     # shell
     zoxide
@@ -77,6 +77,8 @@
     orca-slicer
     freecad
     aseprite
+    inkscape
+    gimp
 
     # gaming
     prismlauncher

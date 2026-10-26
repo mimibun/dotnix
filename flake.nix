@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri = {
-      url = "github:epireyn/niri-flake";
+      url = "github:epireyn/niri-flake?rev=ec2063483ea6d98c71d0e7467b5c065f3ba1ecb8";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     apple-fonts = {

@@ -13,6 +13,7 @@
     ./noctalia.nix
     ./vicinae.nix
     ./git.nix
+    ./claudius.nix
   ];
 
   home.packages = with pkgs; [

@@ -107,7 +107,7 @@ in
 {
   programs.claude-code = {
     enable = true;
-    package = pkgs.claude-code-wrapped;
+    package = claude-code-wrapped;
     settings = {
       model = "opus";
       permissions = {

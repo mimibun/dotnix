@@ -83,6 +83,7 @@
     inkscape
     gimp
     affinity-v3
+    blender
 
     # gaming
     prismlauncher

@@ -115,6 +115,8 @@
   };
   security.rtkit.enable = true;
 
+  security.sudo-rs.enable = true;
+
   services.usbmuxd = {
     enable = true;
     package = pkgs.usbmuxd2;

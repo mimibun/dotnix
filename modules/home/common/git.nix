@@ -2,6 +2,12 @@
 {
   programs.git = {
     enable = true;
+    lfs.enable = true;
+    ignores = [
+      ".DS_Store"
+      ".direnv"
+      ".claude"
+    ];
 
     settings = {
       user.name = "mimi";
@@ -11,6 +17,7 @@
 
       pull.rebase = true;
       push.default = "current";
+      push.autoSetupRemote = true;
     };
   };
 }

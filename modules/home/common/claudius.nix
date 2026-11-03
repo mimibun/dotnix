@@ -10,14 +10,12 @@ let
     ];
 
     text = ''
-      PROFILE="personal"
       CLAUDE_ARGS=()
       EXTRA_MOUNTS=()
       MOUNT_PATHS=()
 
       while [[ $# -gt 0 ]]; do
         case "$1" in
-          --work) PROFILE="work"; shift ;;
           --mount)
             EXTRA_MOUNTS+=(--ro-bind "''${2%/}" "''${2%/}")
             MOUNT_PATHS+=("''${2%/}")
@@ -27,11 +25,7 @@ let
         esac
       done
 
-      if [ "$PROFILE" = "work" ]; then
-        CREDS_FILE="$HOME/.claude/.credentials-work.json"
-      else
-        CREDS_FILE="$HOME/.claude/.credentials.json"
-      fi
+      CREDS_FILE="$HOME/.claude/.credentials.json"
 
       mkdir -p "$HOME/.claude"
       touch "$HOME/.claude.json"
@@ -40,7 +34,7 @@ let
       hide_gitignored() {
         local dir="$1"
         if git -C "$dir" rev-parse --git-dir > /dev/null 2>&1; then
-          while IFS= read -r file; do
+          while IFS= read -r -d "" file; do
             [[ "$file" =~ ^\.claude(/|$) ]] && continue
             [[ "$file" =~ (^|/)CLAUDE\.md$ ]] && continue
             [[ "$file" =~ (^|/)node_modules(/|$) ]] && continue
@@ -55,7 +49,7 @@ let
             elif [[ -f "$dir/$file" ]]; then
               HIDE_BINDS+=(--ro-bind /dev/null "$dir/$file")
             fi
-          done < <(git -C "$dir" ls-files --ignored --exclude-standard --others --directory)
+          done < <(git -C "$dir" ls-files -z --ignored --exclude-standard --others --directory)
         fi
       }
 
@@ -66,6 +60,7 @@ let
       done
 
       bwrap \
+        --clearenv \
         --ro-bind /usr /usr \
         --ro-bind /bin /bin \
         --ro-bind-try /lib /lib \
@@ -83,13 +78,17 @@ let
         --ro-bind /etc/group /etc/group \
         --ro-bind /etc/ssl/certs/ca-bundle.crt /etc/ssl/certs/ca-bundle.crt \
         --bind "$PWD" "$PWD" \
+        --ro-bind-try "$PWD/.git/hooks" "$PWD/.git/hooks" \
+        --ro-bind-try "$PWD/.git/config" "$PWD/.git/config" \
         --bind "$HOME/.claude" "$HOME/.claude" \
         --bind "$CREDS_FILE" "$HOME/.claude/.credentials.json" \
         --bind "$HOME/.claude.json" "$HOME/.claude.json" \
-        --bind "$HOME/.local/share/pnpm/" "$HOME/.local/share/pnpm/" \
         --setenv HOME "$HOME" \
         --setenv USER "$USER" \
         --setenv PATH "$PATH" \
+        --setenv TERM "''${TERM:-xterm-256color}" \
+        --setenv COLORTERM "''${COLORTERM:-}" \
+        --setenv LANG "''${LANG:-C.UTF-8}" \
         --setenv SSL_CERT_FILE /etc/ssl/certs/ca-bundle.crt \
         --tmpfs /tmp \
         --proc /proc \
@@ -110,23 +109,13 @@ in
     package = claude-code-wrapped;
     settings = {
       model = "opus";
-      permissions = {
-        allow = [
-          "Bash(rg *)"
-          "Bash(fd *)"
-        ];
-      };
-      outputStyle = "Explanatory";
+      outputStyle = "Learning";
+      disableAutoMode = "disable";
       theme = "auto";
       feedbackSurveyRate = 0;
       env = {
-        CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY = 1;
-        CLAUDE_CODE_ENABLE_TELEMETRY = 0;
-        CHROME_DEVTOOLS_MCP_NO_USAGE_STATISTICS = 1;
-      };
-      enabledPlugins = {
-        "chrome-devtools-mcp@claude-plugins-official" = true;
-        "typescript-lsp@claude-plugins-official" = true;
+        CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY = "1";
+        DISABLE_TELEMETRY = "1";
       };
     };
     context = ''
@@ -147,6 +136,12 @@ in
       Make minimal, focused changes. Ask before refactoring unrelated code.
       Match existing style and patterns in the file.
       Prefer small, composable functions. No premature abstraction.
+
+      I'm learning to code. Pair-program with me. Language and level vary by project; ask if they aren't stated.
+      - Before non-trivial code, give 2-3 options with tradeoffs and a recommendation. I choose.
+      - Ask one question at a time and work in small steps. Tell me how to check each one.
+      - When I'm stuck, give a hint first and the solution only if I ask.
+      - Correct my misunderstandings directly.
 
       Before writing any code, stop at the first rung that holds:
       - Does this need to be built at all? (YAGNI)

@@ -18,6 +18,10 @@
     noctalia = {
       url = "github:noctalia-dev/noctalia/cachix";
     };
+    affinity-nix = {
+      url = "github:mrshmllow/affinity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
@@ -33,6 +37,7 @@
       niri,
       apple-fonts,
       home-manager,
+      affinity-nix,
       ...
     }@inputs:
     {
@@ -48,6 +53,8 @@
             niri.nixosModules.niri
 
             {
+              nixpkgs.overlays = [ affinity-nix.overlays.default ];
+
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;

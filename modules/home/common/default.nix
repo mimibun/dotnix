@@ -42,7 +42,7 @@
     libimobiledevice
     ifuse
     usbmuxd
-    iloader
+    # iloader
 
     # shell
     zoxide
@@ -76,9 +76,11 @@
     prusa-slicer
     orca-slicer
     freecad
+    openscad
     aseprite
     inkscape
     gimp
+    affinity-v3
 
     # gaming
     prismlauncher

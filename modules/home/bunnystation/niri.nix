@@ -30,14 +30,6 @@
         };
       };
       binds = with config.lib.niri.actions; {
-        "Mod+WheelScrollUp" = {
-          cooldown-ms = 150;
-          action = focus-workspace-up;
-        };
-        "Mod+WheelScrollDown" = {
-          cooldown-ms = 150;
-          action = focus-workspace-down;
-        };
       };
     };
   };

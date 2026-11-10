@@ -89,14 +89,14 @@
   services.xserver.enable = true;
 
   services.displayManager = {
-    sddm = {
+    ly = {
       enable = true;
-      wayland.enable = true;
+      x11Support = false;
     };
-    autoLogin = {
-      enable = false;
-      user = "mimi";
-    };
+    # autoLogin = {
+    #   enable = false;
+    #   user = "mimi";
+    # };
   };
 
   services.xserver.xkb = {

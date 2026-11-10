@@ -150,6 +150,14 @@
         "Mod+L" = {
           action = focus-column-or-monitor-right;
         };
+        "Mod+WheelScrollUp" = {
+          cooldown-ms = 150;
+          action = focus-workspace-up;
+        };
+        "Mod+WheelScrollDown" = {
+          cooldown-ms = 150;
+          action = focus-workspace-down;
+        };
 
         # moving
         "Mod+Shift+H" = {

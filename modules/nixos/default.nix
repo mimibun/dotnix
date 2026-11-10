@@ -12,18 +12,6 @@
         PermitRootLogin = "no";
       };
     };
-
-    displayManager.noctalia-greeter = {
-      enable = true;
-      settings = {
-        cursor.size = 24;
-        keyboard.layout = "de";
-      };
-      cursorTheme = {
-        package = pkgs.bibata-cursors;
-        name = "Bibata-Modern-Ice";
-      };
-    };
   };
 
   programs = {

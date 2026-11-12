@@ -1,4 +1,4 @@
-{ config, ... }:
+{ ... }:
 {
   programs.niri = {
     settings = {
@@ -29,8 +29,8 @@
           scale = 1;
         };
       };
-      binds = with config.lib.niri.actions; {
-      };
+      # binds = with config.lib.niri.actions; {
+      # };
     };
   };
 }

@@ -56,6 +56,7 @@
     nodejs_26
     nixfmt
     nil
+    python3
 
     # social
     signal-desktop
@@ -105,8 +106,10 @@
 
     vesktop = {
       enable = true;
+    };
 
-      vencord.settings = { };
+    obsidian = {
+      cli.enable = true;
     };
   };
 

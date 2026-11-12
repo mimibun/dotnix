@@ -20,10 +20,10 @@
   services.upower.enable = true;
 
   services.fprintd.enable = true;
-  services.usbmuxd.enable = true;
-
-  security.pam.services.login.fprintAuth = true;
-  security.pam.services.sudo.fprintAuth = true;
+  security.pam.services = {
+    login.fprintAuth = true;
+    sudo.fprintAuth = true;
+  };
 
   services.logind.settings.Login = {
     HandlePowerKey = "ignore";
@@ -32,8 +32,8 @@
     HandleSuspendKey = "ignore";
   };
 
+  services.usbmuxd.enable = true;
   services.thermald.enable = true;
-
   services.gvfs.enable = true;
 
   networking = {
@@ -68,6 +68,7 @@
 
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "iHD";
+    NIXOS_OZONE_WL = "1";
     # WEBKIT_DISABLE_COMPOSITING_MODE=1;
   };
 
@@ -91,12 +92,8 @@
   services.displayManager = {
     ly = {
       enable = true;
-      x11Support = false;
+      x11Support = true;
     };
-    # autoLogin = {
-    #   enable = false;
-    #   user = "mimi";
-    # };
   };
 
   services.xserver.xkb = {

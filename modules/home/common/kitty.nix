@@ -22,11 +22,7 @@
 
       window_padding_width 7
       hide_window_decorations no
-<<<<<<< HEAD
       background_opacity 0.75
-=======
-      background_opacity 0.6
->>>>>>> d00649d (feat: change kitty bg opacity)
       cursor_shape beam
       cursor_beam_thickness 2
       cursor_trail 1

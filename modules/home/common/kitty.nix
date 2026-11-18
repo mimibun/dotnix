@@ -23,8 +23,8 @@
       window_padding_width 7
       hide_window_decorations no
       background_opacity 0.75
-      cursor_shape beam
-      cursor_beam_thickness 2
+      # cursor_shape beam
+      # cursor_beam_thickness 2
       cursor_trail 1
       cursor_trail_decay 0.1 0.4
 
